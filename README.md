@@ -1,3 +1,3 @@
 # EventsApp_React_Mongo
 
-## Built with React, Express, Mongo, TicketMaster API
+###### Built with React, Axios, Express, MongoDB, TicketMaster API

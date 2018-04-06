@@ -10,17 +10,11 @@ let app = express();
 app.use(cors());
 app.use(parser.json());
 app.use(express.static(__dirname + '/../client/dist'));
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
-  next();
-});
 
 
 app.post('/search', function(req,res) {
   console.log(req)
-  axios.get(`https://app.ticketmaster.com/discovery/v2/events.json?size=1&apikey=${config.API_KEY}&keyword=${req.body.data}`)
+  axios.get(`https://app.ticketmaster.com/discovery/v2/events.json?size=3&apikey=${config.API_KEY}&keyword=${req.body.data}`)
   .then(function (response) {
     res.send(JSON.stringify(response.data));
   })

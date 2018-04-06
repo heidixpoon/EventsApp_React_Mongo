@@ -6,6 +6,7 @@ import AppBar from 'material-ui/AppBar'
 import TextField from 'material-ui/TextField'
 import RaisedButton from 'material-ui/RaisedButton'
 
+import ResultItem from './Components/resultItem.jsx'
 
 import './app.css'
 
@@ -22,26 +23,29 @@ class App extends React.Component {
   }
 
   onSearch() {
-    console.log(this.state.term)
     axios.post('/search', {
       data: this.state.term
     })
     .then((res)=> {
-      console.log('hi', res)
-      // this.setState({
-      //   events: res.data.emb
-      // })
+      console.log(res)
+      this.setState({
+        events: res.data._embedded.events
+      })
+    }).catch((err) => {
+      console.log(err)
     })
   }
 
   onChange (e) {
-    console.log('changing');
     this.setState({
       term: e.target.value
     });
   }
 
   render () {
+    let {events} = this.state
+    console.log(events)
+
     return (
       <MuiThemeProvider>
         <div>
@@ -57,6 +61,18 @@ class App extends React.Component {
             onChange={this.onChange}
           /><br />
           <RaisedButton label="Search" style={{"margin":"12"}} primary={true} onClick={this.onSearch}/>
+          <br/>
+          <br/>
+
+          <h3>Results:</h3>
+
+          {events.map((event, i)=> {
+            return(
+            <ResultItem key={i} event={event} />
+            )
+            })
+          }
+
 
 
         </div>

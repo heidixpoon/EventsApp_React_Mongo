@@ -3,6 +3,15 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
+img{
+  max-width: 250px;
+}
+
+.backdrop{
+  backgroundColor: '#E1DCDA'
+
+}
+
 .outerDiv {
   margin: 5% 10%;
 }

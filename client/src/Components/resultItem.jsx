@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom'
 import RaisedButton from 'material-ui/RaisedButton'
 import axios from 'axios'
+import {CardTitle} from 'material-ui/Card'
 
 
 class ResultItem extends React.Component {
@@ -31,18 +32,21 @@ class ResultItem extends React.Component {
   }
 
   render() {
-    let {event} = this.props
+    let {event, id} = this.props
     console.log(event)
     console.log('result item')
 
     return (
     
     <div>
+      {id===0 ? <CardTitle title="Results:" /> : ''}
+
+      <br/><br/>
       <img src={event.images[1].url}></img>
       <h4>Event: {event.name}</h4>  
       <h4>Date: {event.dates.start.dateTime}</h4>   
       <h4>Location: {event._embedded.venues[0].name}</h4> 
-      <RaisedButton label="Buy Tickets!" primary={true} onClick={this.onClickTickets} style={{"margin":"12"}}/>
+      <RaisedButton label="Buy Tickets!" backgroundColor="#F28A7F" labelColor="#fff" onClick={this.onClickTickets} style={{"margin":"12"}}/>
       <RaisedButton label="I want to attend!" style={{"margin":"12"}} onClick={this.onClickAttend}/>
 
 

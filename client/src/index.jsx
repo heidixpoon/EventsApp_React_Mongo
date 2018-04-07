@@ -69,36 +69,37 @@ class App extends React.Component {
 
     return (
       <MuiThemeProvider>
-        <div>
+        <div className="backdrop">
           <AppBar
             title="Heidi's Event App"
             showMenuIconButton = {false}
+            style={{"backgroundColor": "#9FCCD4"}}
           />
 
-          <br/>
 
           <div className="outerDiv">
 
           <Card>
-            <CardTitle title="Search Events" subtitle="Do it :)" />
+            <CardTitle title="Search Here" subtitle="Look up some concerts or events :)" />
 
             <div className="searchDiv">
               <TextField
                 hintText="Enter artists/event keywords"
                 onChange={this.onChange}
+                underlineStyle = {{"borderColor": "#9FCCD4"}}
+                underlineFocusStyle= {{"borderColor": "#F28A7F"}}
                 style={{"width": "80%" }}
               /><br />
-              <RaisedButton label="Search" style={{"margin":"12"}} primary={true} onClick={this.onSearch}/>
+              <RaisedButton label="Search" style={{"margin":"12"}}  backgroundColor="#9FCCD4" labelColor="#fff" onClick={this.onSearch}/>
               <br/>
               <br/>
             </div>
 
-            <CardTitle title="Results:" />
 
 
             {events.map((event, i)=> {
               return(
-              <ResultItem key={i} event={event} />
+              <ResultItem key={i} id={i} event={event} />
               )
               })
             }

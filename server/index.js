@@ -1,5 +1,5 @@
 const express = require('express');
-// const db = require('../database/index.js');
+const db = require('../database/index.js');
 const parser = require('body-parser');
 const cors = require('cors');
 const axios = require('axios');
@@ -13,7 +13,6 @@ app.use(express.static(__dirname + '/../client/dist'));
 
 
 app.post('/search', function(req,res) {
-  console.log(req)
   axios.get(`https://app.ticketmaster.com/discovery/v2/events.json?size=3&apikey=${config.API_KEY}&keyword=${req.body.data}`)
   .then(function (response) {
     res.send(JSON.stringify(response.data));
@@ -26,7 +25,7 @@ app.post('/search', function(req,res) {
 });
 
 app.post('/events', function (req, res) {
-
+  db.save(JSON.stringify(req.body.data)).then(() => {res.status(200).send();})
 });
 
 app.get('/events', function (req, res) {

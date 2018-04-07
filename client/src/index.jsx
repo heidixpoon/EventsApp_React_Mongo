@@ -5,8 +5,11 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import AppBar from 'material-ui/AppBar'
 import TextField from 'material-ui/TextField'
 import RaisedButton from 'material-ui/RaisedButton'
+import {Card, CardTitle, CardText} from 'material-ui/Card'
+
 
 import ResultItem from './Components/resultItem.jsx'
+import EventsList from './eventsList.jsx'
 
 import './app.css'
 
@@ -54,25 +57,45 @@ class App extends React.Component {
             showMenuIconButton = {false}
           />
 
-          <h3>Coming soon!</h3>
-          <br/>
-          <TextField
-            hintText="Enter artists/event keywords"
-            onChange={this.onChange}
-          /><br />
-          <RaisedButton label="Search" style={{"margin":"12"}} primary={true} onClick={this.onSearch}/>
-          <br/>
           <br/>
 
-          <h3>Results:</h3>
+          <div className="outerDiv">
 
-          {events.map((event, i)=> {
-            return(
-            <ResultItem key={i} event={event} />
-            )
-            })
-          }
+          <Card>
+            <CardTitle title="Search Events" subtitle="Do it :)" />
 
+            <TextField
+              hintText="Enter artists/event keywords"
+              onChange={this.onChange}
+              style={{"width": "70%" }}
+            /><br />
+            <RaisedButton label="Search" style={{"margin":"12"}} primary={true} onClick={this.onSearch}/>
+            <br/>
+            <br/>
+
+            <CardTitle title="Results:" />
+
+
+            {events.map((event, i)=> {
+              return(
+              <ResultItem key={i} event={event} />
+              )
+              })
+            }
+
+
+            <br/>
+            <br/>
+
+
+          </Card>
+
+            <br/>
+            <br/>
+
+          <EventsList/>
+
+          </div>  
 
 
         </div>

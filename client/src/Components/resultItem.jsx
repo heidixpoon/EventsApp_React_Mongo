@@ -7,7 +7,7 @@ import axios from 'axios'
 class ResultItem extends React.Component {
   constructor(props) {
     super(props)
-
+    this.onClickAttend = this.onClickAttend.bind(this)
     this.onClickTickets = this.onClickTickets.bind(this)
   }
 

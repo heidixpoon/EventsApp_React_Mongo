@@ -3,6 +3,9 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
+.outerDiv {
+  margin: 5% 10%;
+}
 
 h1{
   color: grey;

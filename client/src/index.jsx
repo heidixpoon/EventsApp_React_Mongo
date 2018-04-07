@@ -78,7 +78,7 @@ class App extends React.Component {
           <div className="outerDiv">
 
           <Card style={{"backgroundColor": "rgb(247, 242, 239, .3)"}}>
-            <CardTitle title="Search Here" subtitle="Look up some concerts or events :)" />
+            <CardTitle title="Search for Events" subtitle="Look up some concerts or events :)" />
 
             <div className="searchDiv">
               <TextField
@@ -86,7 +86,7 @@ class App extends React.Component {
                 onChange={this.onChange}
                 underlineStyle = {{"borderColor": "#9FCCD4"}}
                 underlineFocusStyle= {{"borderColor": "#F28A7F"}}
-                style={{"width": "80%" }}
+                style={{"width": "100%" }}
               /><br />
               <RaisedButton type="submit" label="Search" style={{"margin":"12"}}  backgroundColor="#9FCCD4" labelColor="#fff"  onClick={this.onSearch}/>
               <br/>

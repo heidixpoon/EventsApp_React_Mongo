@@ -4,7 +4,7 @@ body {
 }
 
 img{
-  max-width: 250px;
+  max-width: 300px;
 }
 
 .backdrop{
@@ -24,6 +24,45 @@ img{
   
   justify-content: space-around;
 }
+
+.savedEvents-container{
+  padding: 0;
+  margin: 0;
+  
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+
+  
+  justify-content: space-around;
+}
+
+.event-container {
+  padding: 25px 10px;
+}
+
+.eventInfo{
+  padding: 0;
+  margin: 0;
+  
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  
+  justify-content: space-around;
+}
+
+.eventInfo-trash{
+  position: relative;
+  margin-top: 90px;
+}
+
 
 /* .flex-item{
   padding: 5px;
@@ -52,7 +91,7 @@ h1{
 
 .result-buttons{
   position: relative;
-  top: 165px;
+  margin-top: 30%;
 }
 
 .result-container{

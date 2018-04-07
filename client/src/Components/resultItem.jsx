@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom'
 import RaisedButton from 'material-ui/RaisedButton'
 import axios from 'axios'
-import {CardTitle} from 'material-ui/Card'
+import {CardTitle, CardText} from 'material-ui/Card'
 
 
 class ResultItem extends React.Component {
@@ -46,9 +46,9 @@ class ResultItem extends React.Component {
 
       <div className = "flex-container">
         <div className = "flex-item"> 
-          <img src={event.images[1].url}></img>
-          <h4>Event: {event.name}</h4>  
-          <h4>Date: {event.dates.start.dateTime}</h4>   
+          <h3>Event: {event.name}</h3>  
+          <img src={event.images[0].url}></img>
+          <h4>Date: {event.dates.start.localDate}</h4>   
           <h4>Location: {event._embedded.venues[0].name}</h4> 
         </div>
 

@@ -35,13 +35,24 @@ class EventItem extends React.Component {
 
     return (
     
-    <div>
-      <CardText>{event.name}</CardText>
-      <CardText>{event.date}</CardText>
+    <div className="event-container">
 
-      <svg style={{"width":"28px", "height":"28px", "cursor":"pointer" }} onClick ={this.onClickDelete} viewBox="0 0 24 24">
-        <path fill="#9FCCD4" d="M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z" />
-      </svg>
+      <img src={event.image} style={{"borderRadius": "5px"}} width="350" height="200" alt="soon event" />
+      
+      <div className="eventInfo">
+        <div>
+          <CardText style={{"fontWeight":"bold"}}>{event.name}</CardText>
+          <CardText style={{"fontWeight":"bold"}}>Date: {event.date}</CardText>
+          <CardText style={{"fontWeight":"bold"}}>Venue: {event.venue}</CardText>
+        </div>
+
+        <div className="eventInfo-trash">
+          <svg style={{"width":"35px", "height":"35px", "cursor":"pointer" }} onClick ={this.onClickDelete} viewBox="0 0 24 24">
+            <path fill="#9FCCD4" d="M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z" />
+          </svg>
+        </div>
+
+      </div>
     </div>
 
     ) 

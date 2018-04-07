@@ -9,6 +9,9 @@ const EventsList = ({savedEvents, getSavedEvent}) => (
 
     <Card style={{"backgroundColor": "rgb(247, 242, 239, .3)"}}>
       <CardTitle title="My Events Wishlist" subtitle="Events I'm interested in" />
+      <br/><br/>
+
+      <div className="savedEvents-container">
       {savedEvents.map((event, i) => {
         return(
           <EventItem key={i} event={event} getSavedEvent={getSavedEvent}/>
@@ -16,6 +19,8 @@ const EventsList = ({savedEvents, getSavedEvent}) => (
       })
 
       }
+
+      </div>
 
     </Card>
 

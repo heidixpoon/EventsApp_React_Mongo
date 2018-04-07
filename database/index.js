@@ -24,8 +24,7 @@ let Event = mongoose.model('Event', eventSchema);
 
 
 let save = (event) => {
-
-  event = JSON.parse(event)
+ event = JSON.parse(event)
 
     let eachEvent = {
       id: event.id,
@@ -35,11 +34,6 @@ let save = (event) => {
       venue: event._embedded.venues[0].name,
       image: event.images[1].url
     }
-
-    // var newEvent = new Event(eachEvent);
-
-    // return newEvent.save(newEvent)
-    // .catch((err) => {})
 
     return Event.create(eachEvent).catch((err) => {console.log('failed save', err)})
 
@@ -53,10 +47,6 @@ let findEvents = () => {
 
 let deleteEvent = (event) => {
   let parsedId = JSON.parse(event).id;
-
-
-  // console.log(Event.find({id: parsedId}))
-
   return Event.find({ id: parsedId }).remove().exec();
 
 }

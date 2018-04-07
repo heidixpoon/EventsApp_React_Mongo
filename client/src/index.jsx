@@ -88,7 +88,9 @@ class App extends React.Component {
                 underlineFocusStyle= {{"borderColor": "#F28A7F"}}
                 style={{"width": "100%" }}
               /><br />
-              <RaisedButton type="submit" label="Search" style={{"margin":"12"}}  backgroundColor="#9FCCD4" labelColor="#fff"  onClick={this.onSearch}/>
+              <div className="submitBtn">
+                <RaisedButton type="submit" label="Search" style={{"margin":"12"}}  backgroundColor="#9FCCD4" labelColor="#fff"  onClick={this.onSearch}/>
+              </div>
               <br/>
               <br/>
             </div>

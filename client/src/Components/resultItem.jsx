@@ -49,7 +49,8 @@ class ResultItem extends React.Component {
           <h3>Event: {event.name}</h3>  
           <img src={event.images[0].url}></img>
           <h4>Date: {event.dates.start.localDate}</h4>   
-          <h4>Location: {event._embedded.venues[0].name}</h4> 
+          <h4>Venue: {event._embedded.venues[0].name}</h4> 
+          <h4>City/Country: {event._embedded.venues[0].city.name}, {event._embedded.venues[0].country.name}</h4>
         </div>
 
         <div className = "flex-item result-buttons">

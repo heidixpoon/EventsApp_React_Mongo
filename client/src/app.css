@@ -89,6 +89,11 @@ h1{
 
 }
 
+.submitBtn{
+  margin-top: 20px;
+  margin-left: 38%;
+}
+
 .result-buttons{
   position: relative;
   margin-top: 30%;

@@ -1,7 +1,9 @@
 const mongoose = require('mongoose');
+const config = require ('../config.js')
+
 mongoose.Promise = Promise;
-mongoose.connect('mongodb://localhost/eventsApp');
-// mongoose.connect(process.env.MLAB_URL || 'mongodb://localhost/fetcher')
+// mongoose.connect('mongodb://localhost/eventsApp');
+mongoose.connect(config.MLAB || 'mongodb://localhost/eventsApp')
 
 
 var db = mongoose.connection;

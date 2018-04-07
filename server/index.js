@@ -30,10 +30,17 @@ app.post('/events', function (req, res) {
 
 app.get('/events', function (req, res) {
   db.findEvents().then((data) => {
-    console.log('found!', data)
     res.status(200).send(JSON.stringify(data))
   })
 });
+
+
+app.delete('/events', function(req, res){
+  db.deleteEvent(req.query.event).then(() => {
+    console.log('delete success');
+    res.status(200).send();
+  })
+})
 
 let port = 8000;
 

@@ -47,8 +47,23 @@ let save = (event) => {
 
 
 let findEvents = () => {
-  return Event.find({}).exec()
+  return Event.find({}).sort('date').exec()
 }
+
+
+let deleteEvent = (event) => {
+  let parsedId = JSON.parse(event).id;
+
+
+  // console.log(Event.find({id: parsedId}))
+
+  return Event.find({ id: parsedId }).remove().exec();
+
+}
+
+
+
 
 module.exports.findEvents = findEvents;
 module.exports.save = save;
+module.exports.deleteEvent = deleteEvent;

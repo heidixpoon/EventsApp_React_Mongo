@@ -8,9 +8,34 @@ img{
 }
 
 .backdrop{
-  backgroundColor: '#E1DCDA'
+  background-color: '#E1DCDA' !important;
 
 }
+
+.flex-container{
+  padding: 0;
+  margin: 0;
+  
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  
+  justify-content: space-around;
+}
+
+/* .flex-item{
+  padding: 5px;
+  width: 400px;
+  height: 150px;
+  margin-top: 10px;
+  
+  line-height: 150px;
+  font-weight: bold;
+  font-size: 3em;
+  text-align: center;
+} */
 
 .outerDiv {
   margin: 5% 10%;
@@ -23,6 +48,15 @@ img{
 h1{
   color: grey;
 
+}
+
+.result-buttons{
+  position: relative;
+  top: 165px;
+}
+
+.result-container{
+  margin: 0% 15%;
 }
 
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500');

@@ -4,14 +4,14 @@ import FlatButton from 'material-ui/FlatButton'
 import EventItem from './Components/eventItem.jsx'
 
 
-const EventsList = ({savedEvents}) => (
+const EventsList = ({savedEvents, getSavedEvent}) => (
   <div>
 
-    <Card>
-      <CardTitle title="My Saved Events List" subtitle="Events I'm interested in" />
+    <Card style={{"backgroundColor": "rgb(247, 242, 239, .3)"}}>
+      <CardTitle title="My Events Wishlist" subtitle="Events I'm interested in" />
       {savedEvents.map((event, i) => {
         return(
-          <EventItem key={i} event={event}/>
+          <EventItem key={i} event={event} getSavedEvent={getSavedEvent}/>
         )
       })
 

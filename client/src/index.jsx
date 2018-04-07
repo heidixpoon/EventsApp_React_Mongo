@@ -7,7 +7,6 @@ import TextField from 'material-ui/TextField'
 import RaisedButton from 'material-ui/RaisedButton'
 import {Card, CardTitle, CardText} from 'material-ui/Card'
 
-
 import ResultItem from './Components/resultItem.jsx'
 import EventsList from './eventsList.jsx'
 
@@ -65,7 +64,6 @@ class App extends React.Component {
 
   render () {
     let {events, savedEvents} = this.state
-    console.log(savedEvents[0])
 
     return (
       <MuiThemeProvider>
@@ -79,7 +77,7 @@ class App extends React.Component {
 
           <div className="outerDiv">
 
-          <Card>
+          <Card style={{"backgroundColor": "rgb(247, 242, 239, .3)"}}>
             <CardTitle title="Search Here" subtitle="Look up some concerts or events :)" />
 
             <div className="searchDiv">
@@ -90,19 +88,20 @@ class App extends React.Component {
                 underlineFocusStyle= {{"borderColor": "#F28A7F"}}
                 style={{"width": "80%" }}
               /><br />
-              <RaisedButton label="Search" style={{"margin":"12"}}  backgroundColor="#9FCCD4" labelColor="#fff" onClick={this.onSearch}/>
+              <RaisedButton type="submit" label="Search" style={{"margin":"12"}}  backgroundColor="#9FCCD4" labelColor="#fff"  onClick={this.onSearch}/>
               <br/>
               <br/>
             </div>
 
 
-
+            <div className="result-container">
             {events.map((event, i)=> {
               return(
-              <ResultItem key={i} id={i} event={event} />
+              <ResultItem key={i} id={i} event={event} getSavedEvent={this.getSavedEvent}/>
               )
               })
             }
+            </div>
 
 
             <br/>
@@ -114,7 +113,7 @@ class App extends React.Component {
             <br/>
             <br/>
 
-            {savedEvents.length>0 ? <EventsList savedEvents={savedEvents}/> : ''}
+            {savedEvents.length>0 ? <EventsList savedEvents={savedEvents} getSavedEvent={this.getSavedEvent}/> : ''}
 
 
 

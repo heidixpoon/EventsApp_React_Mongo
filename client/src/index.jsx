@@ -18,11 +18,29 @@ class App extends React.Component {
     super(props)
     this.state = { 
       events: [],
-      term: null
+      term: null,
+      savedEvents: []
     }
 
     this.onSearch = this.onSearch.bind(this)
     this.onChange = this.onChange.bind(this)
+    this.getSavedEvent = this.getSavedEvent.bind(this)
+  }
+
+  componentWillMount(){
+    this.getSavedEvent()
+  }
+
+  getSavedEvent(){
+    axios.get('/events')
+    .then((res)=> {
+      console.log('in view res', res)
+      this.setState({
+        savedEvents: res.data
+      })
+    }).catch((err) => {
+      console.log(err)
+    })
   }
 
   onSearch() {
@@ -46,8 +64,8 @@ class App extends React.Component {
   }
 
   render () {
-    let {events} = this.state
-    console.log(events)
+    let {events, savedEvents} = this.state
+    console.log(savedEvents[0])
 
     return (
       <MuiThemeProvider>
@@ -64,14 +82,16 @@ class App extends React.Component {
           <Card>
             <CardTitle title="Search Events" subtitle="Do it :)" />
 
-            <TextField
-              hintText="Enter artists/event keywords"
-              onChange={this.onChange}
-              style={{"width": "70%" }}
-            /><br />
-            <RaisedButton label="Search" style={{"margin":"12"}} primary={true} onClick={this.onSearch}/>
-            <br/>
-            <br/>
+            <div className="searchDiv">
+              <TextField
+                hintText="Enter artists/event keywords"
+                onChange={this.onChange}
+                style={{"width": "80%" }}
+              /><br />
+              <RaisedButton label="Search" style={{"margin":"12"}} primary={true} onClick={this.onSearch}/>
+              <br/>
+              <br/>
+            </div>
 
             <CardTitle title="Results:" />
 
@@ -93,7 +113,9 @@ class App extends React.Component {
             <br/>
             <br/>
 
-          <EventsList/>
+            {savedEvents.length>0 ? <EventsList savedEvents={savedEvents}/> : ''}
+
+
 
           </div>  
 
@@ -106,3 +128,5 @@ class App extends React.Component {
 }
 
 ReactDOM.render(<App />, document.getElementById('app'))
+
+

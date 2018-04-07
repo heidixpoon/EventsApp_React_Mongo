@@ -29,7 +29,10 @@ app.post('/events', function (req, res) {
 });
 
 app.get('/events', function (req, res) {
-
+  db.findEvents().then((data) => {
+    console.log('found!', data)
+    res.status(200).send(JSON.stringify(data))
+  })
 });
 
 let port = 8000;

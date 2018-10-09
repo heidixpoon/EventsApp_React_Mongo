@@ -69,7 +69,7 @@ class App extends React.Component {
       <MuiThemeProvider>
         <div className="backdrop">
           <AppBar
-            title="Heidi's Event App"
+            title="Heidi's Event Search App"
             showMenuIconButton = {false}
             style={{"backgroundColor": "#9FCCD4"}}
           />
